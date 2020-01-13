@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/uploads/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/group.css">
+</head>
+<body>
+    <nav id="navbar" class="push better-nav fixed-top">
+        <div class="container">
+          <div class="head">
+            <a href="/home" class="brand">
+              <div class="logo">
+                <img class="image" src="https://scontent.fdad3-2.fna.fbcdn.net/v/t1.15752-9/81018490_1496851913818001_484013874769559552_n.png?_nc_cat=105&_nc_ohc=7YSVsBWO0V8AQneMRx1qy0tmIvYsjdsLGjkAtURpBfl4KlkZBUHSs1LSA&_nc_ht=scontent.fdad3-2.fna&oh=fdf28abfc632dc7ea2e39596854a6e98&oe=5E6D85B8"\
+                data2x="https://66.media.tumblr.com/avatar_2dcdc7cf5b47_128.png" alt="Branding" />
+              </div>
+              <div class="title">
+                <h3>Chat Apps</h3>
+              </div>
+            </a>
+          </div>
+          <div class="body">
+            <ul>
+              <li class="home"><a href="/home">Home</a></li>
+              <li class="blog dropdown "><a href="/home">Friend Request</a></li>
+            <li class="blog dropdown"><a href="#">Message</a></li>
+              <li class="blog active dropdown"><a href="#"> <%= user.username %></a>
+                <span class="selector"></span>
+                <ul>
+                  <li><a href="/settings/profile">Profile</a></li>
+                  <li><a href="/logout">Logout</a></li>
+                </ul>
+              </li>
+              <li class="page"><a href="#">Contacts</a></li>
+            </ul>
+          </div>
+          <div class="toggle">
+            <a href="#navbar-slide">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div id="underlay" class="better-nav-mobile-underlay"></div>
+      <nav id="navbar-slide" class="better-nav-pills"></nav>
+    <br>
+    
+    <br>
+    <br>
+    
+    <br>
+    
+    <br>
+<div class="col-md-12">
+   <form action="#" method="post">
+       <div class="form-group ad-30" style="margin-top:8px;">
+            <div class="input-group search-style">
+                <input class="form-control new-search-bar"  name="country" id="search" placeholder="Enter Your Club Name" type="text">
+                <span class="input-group-btn">
+                    <button class="btn input-btn" type="" id="search-form">Search</button>
+                </span>
+            </div>
+        </div>
+   </form>
+</div>
+  
+<div class="col-md-12">
+   <input type="hidden" id="name-user" value="<%= user.username %>">
+   <input type="hidden" id="name-image" value="<%= user.userImage %>">
+    <div class="">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="filter-container">
+                            <div class="card">
+                                <form action="/results" method="post">
+                                    <div class="content">
+                                        <p class="filter">
+                                            FILTER
+                                        </p>
+                                        <hr/>
+                                        <select class="form-control" name="country" id="country" >
+                                            <option value="">Filter By Country</option>
+                                            
+                                        </select>
+                                        <div class="clearfix"></div>
+                                        <button class="btn add-apply">Apply</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-9">
+                <div>
+                   <% _.forEach(chunks, function(val) { %>
+                    <div class="category-list">
+                        <div class="row">
+                           <% _.forEach(val, function(val2) { %>
+                            <form action="/home" method="post" id="favorite">
+                                <div class="item col-md-4">
+                                   <a style="text-decoration:none" href="/group/<%= val2.name %>">
+                                    <div class="thumbnail">
+                                       <img src="https://footballkik.s3.amazonaws.com/<%= val2.image %>" alt="">
+                                        <div class="caption">
+                                            <h4>
+                                                <%= val2.name %> (<%= val2.fans.length %>)
+                                            </h4>
+                                            
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-6">
+                                                    <p>
+                                                        <%= val2.country %>
+                                                    </p>
+                                                </div>
+                                                
+                                                <div class="col-xs-12 col-md-6">
+                                                    <input type="hidden" name="id" id="id" value="<%= val2._id %>">
+                                                    <input type="hidden" name="clubName" id="club_Name" value="<%= val2.name %>">
+                                                    <button class="btn add-fav">
+                                                        Add To Favorite
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                            </form>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/messagelink.js"></script>
+<script src="/js/group/sendrequest.js"></script> 
+<script src="/js/home.js"></script>
+<script src="/js/global.js"></script>
+<script src="/js/deparam.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"></script>
+</body>
+</html>

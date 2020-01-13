@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700|Quicksand:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+.img-container img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 100%;
+    background-position: center;
+}
+.form{
+    margin-left: 40px;
+}
+.profile-usertitle{
+    margin-top: 20px;
+}
+.profile-usertitle-name{
+    font-family: 'Oswald';
+    font-size: 35px;
+}
+.profile-sidebar{
+    background-color: white;
+    width: 500px;
+    text-align: center;
+    height: 150%;
+    padding-top: 50px;
+}
+.profile-usermenu{
+    text-align: center;
+    margin-left: 40%;
+}
+.profile-usertitle-job{
+    font-family: 'Raleway';
+    font-size: 20px;
+}
+.form{
+    font-family: 'Raleway';
+}
+.form h3{
+    font-size: 30px;
+}
+hr{
+    margin-top: -5px;
+}

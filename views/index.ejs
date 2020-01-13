@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>CHAT APP</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/all.css">
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+
+  <div id="main">
+    <div class="main">
+      <form action="/" method="post">
+      
+        <h1>
+          Login
+        </h1>
+
+        <% if(hasErrors) {%>
+        <% _.forEach(messages, function(error){ %>
+        <div class="alert alert-danger text-center">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= error %><br>
+        </div>
+        <% }) %>
+        <% } %>
+
+        <div class="inset">
+          <p>
+            <label for="email">EMAIL ADDRESS</label>
+            <input type="text" name="email" placeholder="" />
+          </p>
+          <p>
+            <label for="password">PASSWORD</label>
+            <input type="password" name="password" placeholder="" />
+          </p>
+
+        </div>    
+        <p class="p-container">
+         <center>
+            <div>
+              <button type="submit" class=" btn-login"><i class="fas fa-sign-in-alt" style="font-size: 15px;"></i> Sign in</button>
+            </div>
+         </center>
+         <a href="/signup">Not Yet Registered?</a>
+        </p>
+        <center>
+          <p>or</p>
+          <div class="social">
+            <a href="/auth/facebook" class="btn-facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="/auth/google" class="btn-google">
+              <i class="fab fa-google-plus"></i>
+            </a>
+  
+          </div>
+        </center>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
